@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
@@ -27,8 +30,10 @@
     "mongoose": "^7.3.1",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.3",
-    "nodemon": "^2.0.22",
     "path": "^0.12.7",
     "stripe": "^13.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
