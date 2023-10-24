@@ -351,7 +351,12 @@ router.post('/password/reset', async (req, res) => {
 router.post('/payment', async (req, res) => {
   const { id, verified } = req.body
   if(!id) return res.status(400).send({'message': "Invalid ID"});
+
   try {
+
+    let user =  await User.findOne({_id: id});
+    if(!user) return res.status(404).send({'message': "Invalid User"}); 
+
     const session = await stripe.checkout.sessions.create({
       line_items: [
         {
@@ -396,6 +401,7 @@ router.get('/payment/success', async (req, res) => {
     await user.save()
     res.render('success.html', {returnURL: process.env.BASE_URL})
   }
+  res.render('failed.html', {returnURL: process.env.BASE_URL})
 })
 
 
