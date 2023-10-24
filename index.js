@@ -37,7 +37,7 @@ const corsOptions = {
   credentials: true, // This enables sending cookies in cross-origin requests
 };
 
-app.use(bodyParser.urlencoded({extended: true}));
+// app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(cors(corsOptions));
 // app.use(cors({ credentials: true, origin: '*' }));

@@ -55,7 +55,8 @@ const UserSchema = new Schema({
   recent: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-  }]
+  }],
+  stripe_session_id: {type: String}
 }, {
   timestamps: true
 })
