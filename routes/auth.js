@@ -179,7 +179,7 @@ router.post('/resend-mail', async (req, res) => {
                     <p>Link expires in 1 hour</p>
                     </div>`
 
-    mailer(email, subject, message).then(() => console.log("SENT")).catch(e => console.log())
+    mailer(email, subject, message).then(() => console.log("SENT")).catch(e => console.log(e))
     return res.sendStatus(200);
   } catch (error) {
     res.status(500).json({ message: 'Server error!' });
