@@ -162,7 +162,7 @@ router.post('/resend-mail', async (req, res) => {
     await newToken.save()
     const url = `${process.env.BASE_URL}/verified?id=${id}&token=${token}`
     const subject = 'Verify email'
-    const sender = "fiona@powpr.co.uk"
+    const sender = ""
     const message = `<div style="">
                       <h4>
                       Good day ${name},
@@ -179,7 +179,7 @@ router.post('/resend-mail', async (req, res) => {
                     <p>Link expires in 1 hour</p>
                     </div>`
 
-    await mailer(email, subject, message, sender)
+    mailer(email, subject, message).then(() => console.log("SENT")).catch(e => console.log())
     return res.sendStatus(200);
   } catch (error) {
     res.status(500).json({ message: 'Server error!' });
