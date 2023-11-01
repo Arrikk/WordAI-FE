@@ -8,9 +8,9 @@ export const mailer = async (receiver, subject, message, sender = 'fiona@powpr.c
 
   transporter = nodemailer.createTransport({
     service: 'gmail',
-    // host: "smtp.gmail.com",
-    // port: 465,
-    // secure: true,
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
     auth: {
       user: process.env.MAILER_USER,
       pass: process.env.MAILER_PASS
@@ -24,7 +24,7 @@ export const mailer = async (receiver, subject, message, sender = 'fiona@powpr.c
     html: message
   };
 
-  console.log(mailOptions)
+  // console.log(mailOptions)
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) console.log('Email not sent: ' + error)
