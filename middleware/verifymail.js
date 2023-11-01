@@ -24,6 +24,8 @@ export const mailer = async (receiver, subject, message, sender = 'fiona@powpr.c
     html: message
   };
 
+  console.log(mailOptions)
+
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) console.log('Email not sent: ' + error)
   })
