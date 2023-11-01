@@ -404,7 +404,6 @@ router.get('/payment/success', async (req, res) => {
   res.render('failed.html', {returnURL: process.env.BASE_URL})
 })
 
-
 router.post('/password/create', async (req, res) => {
   try {
     const pass = await bcrypt.hash(req.body.password, 10)
